@@ -1,6 +1,65 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 const GsapFromTo = () => {
   // TODO: Implement the gsap.fromTo() method
-
+  useGSAP(() => {
+    gsap.fromTo("#red-box",{
+      x: 0,
+      rotation: 0,
+      borderRadius: "0%",
+      backgroundColor: "blue",
+      border: "1px solid black",
+      boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
+      opacity: 1,
+      scale: 1,
+      transformOrigin: "center center",
+      duration: 2,
+      ease: "elastic",
+      delay: 2,
+      stagger: 0.5,
+      onComplete: () => {
+        console.log("Animation completed!");
+      },
+      onStart: () => {
+        console.log("Animation started!");
+      },
+      onUpdate: () => {
+        console.log("Animation updated!");
+      }
+    }, {
+      x: 250,
+      repeat: -1,
+      yoyo: true,
+      rotation: 360,
+      duration: 2,
+      ease: "power1.inOut",
+      delay: 2,
+      stagger: 0.5,
+      opacity: 0.5,
+      scale: 0.5,
+      transformOrigin: "center center",
+      borderRadius: "50%",
+      backgroundColor: "red",
+      border: "1px solid black",
+      boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
+      onComplete: () => {
+        console.log("Animation completed!");
+      },
+      onStart: () => {
+        console.log("Animation started!");
+      },
+      onUpdate: () => {
+        console.log("Animation updated!");
+      },
+      onReverseComplete: () => {
+        console.log("Animation reversed!");
+      },
+      onRepeat: () => {
+        console.log("Animation repeated!");
+      },
+    })
+  }, []);
   return (
     <main>
       <h1>GsapFromTo</h1>
